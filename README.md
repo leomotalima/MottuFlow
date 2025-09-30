@@ -58,14 +58,14 @@ DELETE /api/funcionarios/{id}
 ```json
 [
   {
-    "id_funcionario": 1,
-    "nome": "Joao",
-    "cpf": "539.371.598-60",
-    "cargo": "Mecanico",
-    "telefone": "(11) 99368-5770",
-    "email": "joao@email.com",
-    "senha": "123"
-  }
+  "nome": "Leonardo Mota",
+  "cpf": "12345678900",
+  "cargo": "Desenvolvedor",
+  "telefone": "(11) 98765-4321",
+  "email": "leonardo@email.com",
+  "senha": "Senha123!"
+ }
+
 ]
 ```
 **Status codes esperados:** `200 OK`, `201 Created`, `400 Bad Request`, `404 Not Found`
@@ -83,11 +83,11 @@ DELETE /api/patios/{id}
 ```json
 [
   {
-    "id_patio": 1,
-    "nome": "Patio Central",
-    "endereco": "Rua Principal, 123",
-    "capacidade_maxima": 50
+  "Nome": "Patio Central",
+  "Endereco": "Rua das Flores, 123",
+  "CapacidadeMaxima": 50
   }
+
 ]
 ```
 
@@ -104,14 +104,13 @@ DELETE /api/motos/{id}
 ```json
 [
   {
-    "id_moto": 1,
-    "placa": "ABC-1234",
-    "modelo": "Honda CB500",
-    "fabricante": "Honda",
-    "ano": 2021,
-    "id_patio": 1,
-    "localizacao_atual": "Setor A"
-  }
+  "Placa": "ABC-1234",
+  "Modelo": "Honda CG 160",
+  "Fabricante": "Honda",
+  "Ano": 2023,
+  "IdPatio": 1,
+  "LocalizacaoAtual": "Entrada Principal"
+ }
 ]
 ```
 
@@ -128,10 +127,9 @@ DELETE /api/cameras/{id}
 ```json
 [
   {
-    "id_camera": 1,
-    "status_operacional": "ATIVA",
-    "localizacao_fisica": "Entrada do Patio",
-    "id_patio": 1
+  "StatusOperacional": "Ativa",
+  "LocalizacaoFisica": "Entrada Principal",
+  "IdPatio": 1
   }
 ]
 ```
@@ -149,14 +147,28 @@ DELETE /api/aruco-tags/{id}
 ```json
 [
   {
-    "id_tag": 1,
-    "codigo": "TAG12345",
-    "status": "ATIVO",
-    "id_moto": 1
+  "codigo": "TAG-001",
+  "status": "Ativo",
+  "id_moto": 1
   }
 ]
 ```
-
+### 🌐 Localidades
+```http
+GET /api/localidades
+POST /api/localidades
+```
+**Exemplo POST**
+```json
+[
+  {
+  "dataHora": "2025-09-30T12:00:00",
+  "pontoReferencia": "Entrada Principal",
+  "idMoto": 1,
+  "idPatio": 1,
+  "idCamera": 1
+  }
+]
 ---
 
 ### 📍 Registro de Status
@@ -168,35 +180,19 @@ POST /api/registro-status
 ```json
 [
   {
-    "id_status": 1,
-    "tipo_status": "Disponibilidade",
-    "descricao": "Moto disponível para uso",
-    "data_status": "2025-05-18T20:00:00",
-    "id_moto": 1,
-    "id_funcionario": 1
+  "tipo_status": "Entrada",
+  "descricao": "Moto entrou no pátio",
+  "data_status": "2025-09-29T15:00:00",
+  "id_moto": 1,
+  "id_funcionario": 1
   }
+
 ]
 ```
 
 ---
 
-### 🌐 Localidades
-```http
-GET /api/localidades
-POST /api/localidades
-```
-**Exemplo POST**
-```json
-[
-  {
-    "id_localidade": 1,
-    "data_hora": "2025-05-18T20:00:00",
-    "ponto_referencia": "Entrada Principal",
-    "id_moto": 1,
-    "id_patio": 1,
-    "id_camera": 1
-  }
-]
+
 ```
 
 ---
